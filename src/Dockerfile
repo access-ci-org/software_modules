@@ -9,14 +9,15 @@ ENV PYTHONDONTWRITEBYTECODE=1
 #   && echo $TZ > /etc/timezone
 
 ENV APPDIR=/app
+ENV TGTDIR=${APPDIR}/src
 
 # RUN apt update \
 #   && apt install -y cifs-utils \
 #   && rm -rf /var/lib/apt/lists/*
 
 # target directories are created automatically if they don't already exist
-COPY *.py *.txt *.sh ${APPDIR}/
-RUN pip install --no-cache-dir -r ${APPDIR}/requirements.txt
+COPY *.py *.txt *.sh ${TGTDIR}/
+RUN pip install --no-cache-dir -r ${TGTDIR}/requirements.txt
 
 WORKDIR ${APPDIR}
 CMD [ "/bin/bash" ]

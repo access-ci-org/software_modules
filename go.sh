@@ -14,6 +14,7 @@ function is_windows {
 [[ "$DEBUG" -eq 1 ]] && set -x
 
 tag=production
+[[ -n "$1" ]] && tag="$1"
 
 action=''
 src_home="$HOME"

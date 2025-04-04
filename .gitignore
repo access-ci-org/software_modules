@@ -1,3 +1,9 @@
+# Custom ignores
+*.json
+*.json.pp
+output
+errput
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
