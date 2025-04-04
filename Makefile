@@ -2,7 +2,7 @@ DIRNAME := $(shell basename $$(pwd))
 HOME := $(shell echo $$HOME)
 
 help:
-	echo "Synopsis: make [init up down web db clean bkup reset]"
+	echo "Synopsis: make [help test build run dev clean]"
 
 test:
 	echo $(DIRNAME)
