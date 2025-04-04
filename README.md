@@ -7,7 +7,9 @@ List software modules per resource or group
 
 
 ## Usage
-* `curl .. | bash`
+* `curl
+  https://raw.githubusercontent.com/access-ci-org/software_modules/refs/heads/main/go.sh | bash`
+* `python report.py`
 
 
 ## Developer
