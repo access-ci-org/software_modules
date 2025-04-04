@@ -1,3 +1,4 @@
+import argparse
 import json
 import pathlib
 import requests
@@ -32,6 +33,6 @@ def run():
     args = get_args()
     pprint.pprint( args )
 
-if __name_ == '__main__':
+if __name__ == '__main__':
     get_args()
     run()
