@@ -48,8 +48,7 @@ def get_json_file( fn ):
     return resources[key]
 
 
-def get_RP_groups():
-    key = 'rp_groups'
+def grab_api_resources( key, server, path, params ):
     if key not in resources:
         fn = get_json_file( key )
         update_needed = True
@@ -61,9 +60,9 @@ def get_RP_groups():
                 update_needed = False
         if update_needed:
             # get data from api
-            server = 'operations-api.access-ci.org'
-            path = 'wh2/cider/v1/access-active-groups/'
-            params = { 'format': 'json' }
+            # server = 'operations-api.access-ci.org'
+            # path = 'wh2/cider/v1/access-active-groups/'
+            # params = { 'format': 'json' }
             url = f'https://{server}/{path}'
             response = api_get( url, params )
             data = response.json()
@@ -78,7 +77,6 @@ def get_RP_groups():
                 json_data = json.load( fh )
                 resources[key] = json_data
     return resources[key]
-
 
 def api_go( method, url, **kw ):
     logging.debug( f'{method} {url}, {pprint.pformat(kw)}' )
@@ -97,7 +95,23 @@ def api_go( method, url, **kw ):
 
 
 def api_get( url, params=None ):
-    return api_go( method='GET', url=url, params=params )
+    return api_go( method='GET', url=url, params=params, timeout=120 )
+
+
+def get_RP_groups():
+    key = 'rp_groups'
+    server = 'operations-api.access-ci.org'
+    path = 'wh2/cider/v1/access-active-groups/'
+    params = { 'format': 'json' }
+    return grab_api_resources( key, server, path, params )
+
+
+def get_sw_modules():
+    key = 'sw_modules'
+    server = 'operations-api.access-ci.org'
+    path = 'wh2/glue2/v1/software_full/'
+    params = { 'format': 'json' }
+    return grab_api_resources( key, server, path, params )
 
 
 def run():
