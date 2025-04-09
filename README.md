@@ -8,9 +8,6 @@ List software modules per resource or group
 
 ## Usage
 Run from docker image
-* `docker login https://ghcr.io`
-  * Login with username and PersonalAccessToken
-    * See also: [Managing Your Personal Access Tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * `curl -o go_access_software_modules.sh
   https://raw.githubusercontent.com/access-ci-org/software_modules/refs/heads/production/go.sh`
 * `bash go_access_software_modules.sh`
