@@ -15,7 +15,7 @@ Run from docker image
 
 
 ## Developer
-Alternative to "docker login", download the repo and run `docker build` locally
+Download the repo and run `docker build` locally
 * `git clone https://github.com/access-ci-org/software_modules.git`
 * `cd software_modules`
 * `make dev`

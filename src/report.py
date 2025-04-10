@@ -201,8 +201,14 @@ def populate_empty_RPs( groups, modules_per_rp ):
 
 
 def print_module_counts( modules_per_rp ):
+    msg = "REPORT MODULES COUNT BY RP"
+    print( '-' * len(msg) )
+    print( msg )
+    print( '-' * len(msg) )
     for rp in sorted( modules_per_rp.keys() ):
         print( f"\t{rp} : {len(modules_per_rp[rp])}" )
+    print( 'END' )
+    print( '-' * len(msg) )
 
 
 def duplicate_names_vers( data ):
@@ -235,6 +241,7 @@ def duplicate_names_vers( data ):
 
 def run():
     args = get_args()
+    # logging.debug( pprint.pformat( args ) )
 
     rp_groups = get_RP_groups()
     resource_groups = process_rp_groups( rp_groups )
@@ -243,6 +250,8 @@ def run():
     modules_per_rp = process_sw_modules( sw_fast )
 
     populate_empty_RPs( resource_groups, modules_per_rp )
+    if args.debug:
+        print_module_counts( modules_per_rp )
 
     parms = {}
     if args.pretty:
